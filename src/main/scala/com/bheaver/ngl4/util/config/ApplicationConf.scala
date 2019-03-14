@@ -2,8 +2,14 @@ package com.bheaver.ngl4.util.config
 
 import java.util
 
+import org.springframework.boot.context.properties.{ConfigurationProperties, EnableConfigurationProperties}
+import org.springframework.context.annotation.Configuration
+
 import scala.beans.BeanProperty
 
+@Configuration
+@EnableConfigurationProperties
+@ConfigurationProperties
 class ApplicationConf{
   @BeanProperty
   var general: General = null

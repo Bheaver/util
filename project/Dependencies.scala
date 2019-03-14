@@ -8,12 +8,14 @@ object Versions {
   val snakeYamlVersion = "1.24"
   val log4j2Version = "2.11.2"
   val log4j2ScalaAPIVersion = "11.0"
+  val springBootWebFluxVersion = "2.1.3.RELEASE"
 }
 
 object Dependencies {
 
   val springWebFlux = "org.springframework" % "spring-webflux" % Versions.springWebFluxVersion
   val springContext = "org.springframework" % "spring-context" % Versions.springWebFluxVersion
+  val springBootWebFlux = "org.springframework.boot" % "spring-boot-starter-webflux" % Versions.springBootWebFluxVersion
 
   val reactiveMongoStreams = "org.mongodb" % "mongodb-driver-reactivestreams" % Versions.mongoReactiveStreams
   val mongoAsyncCore = "org.mongodb" % "mongodb-driver-async" % Versions.mongoDriverVersion
@@ -26,6 +28,6 @@ object Dependencies {
   val log4j2Core = "org.apache.logging.log4j" % "log4j-core" % Versions.log4j2Version
   val log4j2API = "org.apache.logging.log4j" % "log4j-api" % Versions.log4j2Version
 
-  val coreDependencies = Seq(springWebFlux, reactiveMongoStreams,mongoAsyncCore,reactiveStreams,mongoJavaDriver, springContext, snakeYaml, log4j2API,log4j2Core,log4j2ScalaAPI)
+  val coreDependencies = Seq(springWebFlux, reactiveMongoStreams,mongoAsyncCore,reactiveStreams,mongoJavaDriver, springContext, snakeYaml, log4j2API,log4j2Core,log4j2ScalaAPI,springBootWebFlux)
 
 }
