@@ -1,6 +1,7 @@
 package com.bheaver.ngl4.util
 
-import java.util
+import java.io.{FileReader}
+
 
 import com.bheaver.ngl4.util.config.ApplicationConf
 import com.bheaver.ngl4.util.mongoUtils.{DBConnection, DBConnectionImpl, Database, DatabaseImpl}
@@ -19,11 +20,13 @@ class BasicBeanFactory {
   }
 
   @Bean(Array("GeneralConfig"))
-  def getApplicationConfig: ApplicationConf = {
+  @DependsOn(Array("ApplicationYAMLString"))
+  def getApplicationConfig(lines: String): ApplicationConf = {
     val yaml = new Yaml(new Constructor(classOf[ApplicationConf]))
-    val source = Source.fromURL(getClass.getResource("/application.yaml"))
-    val applicationConf:ApplicationConf = yaml.load(source.bufferedReader()).asInstanceOf[ApplicationConf]
-    applicationConf
+    //val applicationConf:ApplicationConf = yaml.load(new FileReader("/home/siddartha/scalaworkspace/authenticationAuthorization/src/main/resources/application.yaml")).asInstanceOf[ApplicationConf]
+    //lines.toArray.mkString("\n")
+    //applicationConf
+    yaml.load(lines).asInstanceOf[ApplicationConf]
   }
 
   @Bean(Array("Database"))
