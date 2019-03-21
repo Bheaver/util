@@ -18,6 +18,9 @@ class ApplicationConf{
 class General{
   @BeanProperty
   var mongodb: MongoDB = null
+
+  @BeanProperty
+  var jwt: JWT = null
 }
 
 class MongoDB{
@@ -32,4 +35,19 @@ class Server{
   var ip: String = null
   @BeanProperty
   var port: Int = 0
+}
+
+class JWT{
+  @BeanProperty
+  var keyId: String = null
+  @BeanProperty
+  var issuer: String = null
+  @BeanProperty
+  var audience: String = null
+  @BeanProperty
+  var expirationTimeInMins: Int = 0
+  @BeanProperty
+  var subject: String = null
+  @BeanProperty
+  var email: String = null
 }
